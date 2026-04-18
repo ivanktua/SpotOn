@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Адмінка — Додати Spot</title>
+    <link rel="stylesheet" href="wqfwe.css">
+</head>
+<body>
+    <div class="container" style="margin-top: 50px;">
+        <h2>Додати нову позицію</h2>
+        <div style="background: white; padding: 25px; border-radius: 15px;">
+            <input type="text" id="name" placeholder="Назва (напр. Кур'єр)" style="width:100%; padding:10px; margin-bottom:10px;">
+            <input type="text" id="loc" placeholder="Локація (Київ, Поділ)" style="width:100%; padding:10px; margin-bottom:10px;">
+            <input type="number" id="seats" placeholder="Кількість місць" style="width:100%; padding:10px; margin-bottom:10px;">
+            <button class="btn-main" onclick="save()">Зберегти на сайт</button>
+            <a href="safw.html" style="margin-left: 15px;">На сайт</a>
+        </div>
+    </div>
+    <script>
+    // Перевірка авторизації
+    if (sessionStorage.getItem('auth') !== 'true') {
+        window.location.href = "login.html";
+    }
+
+    function save() {
+        const nameInput = document.getElementById('name');
+        const locInput = document.getElementById('loc');
+        const seatsInput = document.getElementById('seats');
+
+        if (!nameInput.value) {
+            alert("Будь ласка, введіть назву!");
+            return;
+        }
+
+        const newPost = {
+            id: Date.now(),
+            name: nameInput.value,
+            location: locInput.value || "Локація не вказана",
+            seats: seatsInput.value || "0"
+        };
+
+        // Зберігаємо в 'mySpots'
+        let posts = JSON.parse(localStorage.getItem('mySpots')) || [];
+        posts.push(newPost);
+        localStorage.setItem('mySpots', JSON.stringify(posts));
+        
+        alert("Дані успішно збережено!");
+        
+        // Очищуємо поля
+        nameInput.value = '';
+        locInput.value = '';
+        seatsInput.value = '';
+    }
+</script>
+</body>
+</html>
