@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpotOn MVP - Пошук Роботи</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="header">
+        <div class="container header-flex">
+            <a href="#" class="logo-link">
+                <img src="https://res.cloudinary.com/dwbi2xqms/image/upload/v1775894203/logo_xt2izz.png" alt="SpotOn" class="main-logo">
+            </a>
+            <span class="tagline">Вакансії в реальному часі</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="search-box">
+            <input type="text" id="searchInput" placeholder="Кого ви шукаєте? (водій, бариста...)">
+        </section>
+
+        <div id="locationsList" class="locations-list">
+            
+            <div class="spot-card" data-name="бібліотекар кпі архів робота">
+                <div class="spot-info">
+                    <h3>Бібліотекар</h3>
+                    <p>Бібліотека КПІ, Київ</p>
+                    <div class="stats">
+                        <span class="status-dot online"></span> 
+                        Змін доступно: <span id="seats-1">2</span>
+                    </div>
+                </div>
+                <div class="action">
+                    <button onclick="bookSeat(1, this)" class="btn-main">Відгукнутись</button>
+                </div>
+            </div>
+
+            <div class="spot-card" data-name="водій кур'єр доставка авто">
+                <div class="spot-info">
+                    <h3>Водій-кур'єр</h3>
+                    <p>Доставка SpotOn, Київ</p>
+                    <div class="stats">
+                        <span class="status-dot online"></span> 
+                        Авто вільні: <span id="seats-2">5</span>
+                    </div>
+                </div>
+                <div class="action">
+                    <button onclick="bookSeat(2, this)" class="btn-main">Відгукнутись</button>
+                </div>
+            </div>
+
+            <div class="spot-card" data-name="кафе бариста офіціант">
+                <div class="spot-info">
+                    <h3>Бариста</h3>
+                    <p>Yellow Place, Київ</p>
+                    <div class="stats">
+                        <span class="status-dot busy"></span> 
+                        Місць: <span id="seats-3">1</span>
+                    </div>
+                </div>
+                <div class="action">
+                    <button onclick="bookSeat(3, this)" class="btn-main">Відгукнутись</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
