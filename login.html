@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Вхід — SpotOn</title>
+    <link rel="stylesheet" href="wqfwe.css">
+    <style>
+        .login-box { max-width: 300px; margin: 100px auto; text-align: center; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Адмін-панель</h2>
+        <input type="password" id="pass" placeholder="Пароль">
+        <button class="btn-main" onclick="login()" style="width: 100%;">Увійти</button>
+    </div>
+    <script>
+        function login() {
+            if (document.getElementById('pass').value === "1234") { // Твій пароль
+                sessionStorage.setItem('auth', 'true');
+                window.location.href = "admin.html";
+            } else { alert("Невірний пароль!"); }
+        }
+    </script>
+</body>
+</html>
